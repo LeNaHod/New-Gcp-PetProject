@@ -22,7 +22,7 @@ SITE: https://my-petservice.site
 
 ## Upload file
 
-- Petservice : 서비스 인스턴스에서 현재 배포중인 Django프로젝트 파일
+- Petservice : 서비스 인스턴스에서 현재 배포중인 Django프로젝트 파일. **AI모델파일은 용량문제로 제외했습니다.**
 - Airflow_News : 데이터 수집 Airflow 코드
 - Airflow_spark-submit.py : Spark 전처리 및 DB적재 파일
 
