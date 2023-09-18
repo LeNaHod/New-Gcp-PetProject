@@ -1,0 +1,39 @@
+<link href="static/css/toast.css" rel="stylesheet">
+<header id="header" class="header d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <a href="index" class="logo d-flex align-items-center">
+
+      <img src="static/img/foot_icon.png" alt="">
+      <h1>슬집생<span>.</span></h1>
+    </a>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+
+    <!--views.py에서 보내온 메세지를 화면에 출력-->
+    <input id="msg" style="display:None;"  value="{{msg}}">
+    <div id="toast"></div>
+
+
+    <input id="path" style="display:None;"  value="{{request.path}}">
+    <nav id="navbar" class="navbar">
+      <ul>
+        {% if request.session.id %}
+        <li><h6 style="padding-top: 5px;color: #fff;">{{request.session.name}}님 접속중</h6></li>
+        {% endif %}
+        <li><a href="index" id="index">Home</a></li>
+        <li><a href="Medical" id="Medical">Medical</a></li>
+        <li><a href="services" id="services">안구질환 검사</a></li>
+        {% if request.session.id %}
+        <li><a href="mypage" id="mypage">마이페이지</a></li>
+        <li><a href="logout" id="logout">로그아웃</a></li>
+        {% else %}
+        <li><a href="member" id="member">회원가입</a></li>
+        <li><a href="login" id="login">로그인</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+  </div>
+</header>

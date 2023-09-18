@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>슬기로운 집사생활</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="static/img/animal_icon.png" rel="icon">
+  <link href="static/img/animal_icon.png" rel="animal_icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="static/css/main.css" rel="stylesheet">
+  {% load static %}
+</head>
+
+<body>
+<header>{% include 'header.html' %}</header>
+
+  <section id="hero" class="hero">
+
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 data-aos="fade-down">이제 집에서 우리아이의<span>눈을 지켜주세요!</span></h2>
+            <p data-aos="fade-up">슬기로운 집사생활에 어서오세요! 저희는 모든 집사님들에게 반려동물의 눈 건강을 진단해주는 서비스를 제공하고있습니다.함께 행복하게 살기위해 우리아이의 눈을 질병으로부터 보호해주세요.
+              저희는 지구의 모든 집사님들을 응원합니다!
+            </p>
+            <a data-aos="fade-up" data-aos-delay="200" href="#posts" class="btn-get-started">반려동물 최신뉴스 보러가기</a>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(static/img/main_animal/cat1.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(static/img/main_animal/cat2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(static/img/main_animal/dog1.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(static/img/main_animal/dog2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(static/img/main_animal/dog3.jpg)"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+  </section>
+
+  <main id="main">
+    </section>
+
+    <section id="alt-services" class="alt-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg" style="background-image: url(static/img/winkdog3.jpg);" data-aos="zoom-in" data-aos-delay="100"></div>
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3>서비스 소개</h3>
+            <p>우리는 이 서비스를 통해, 안구질환을 앓거나 의심되는 집사님들에게 유용한 서비스가 될 것이라고 생각합니다. </p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-easel flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">반려동물 안구질환 판별기능</a></h4>
+                <p>저희는 타 사이트와 다르게 반려동물의 안구질환을 사진으로 판별할수있는 기능을 제공합니다.사랑하는 우리 댕냥이들의 눈을 보호할수있습니다.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-patch-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">부담없는 회원가입</a></h4>
+                <p>집사님의 이름과 메일, 연락처,주소 그리고 우리아이의 이름만 입력하세요! 그러면 회원가입이 완료됩니다. 회원가입을해서 판별기록을 남겨보세요!</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-brightness-high flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">정확한 판별을위해 사진을 선명하게 올려주세요</a></h4>
+                <p>사진이 흔들리거나, 제대로 나오지않는다면 AI가 제대로 판단 할 수없어요. 서비스를 이용하기 전, 꼭 판별용사진은 선명한것으로 사용해주세요.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-brightness-high flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">병원가기 좋은날</a></h4>
+                <p>우리아이가 안구질환을 앓고있나요? 그렇다면, 슬집생에서 병원을 현재주소를 기반으로 병원위치와 전화번호를 알려드려요!</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  
+    <section id="recent-blog-posts" class="recent-blog-posts">
+      <div class="container" data-aos="fade-up">
+
+  <div class=" section-header">
+        <h2>반려동물상식</h2>
+        <p>집사님들의 생활에 도움이될만한 유용한 정보들을 모아봤어요!</p>
+      </div>
+
+      <div class="row gy-5">
+
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="post-item position-relative h-100">
+
+            <div class="post-img position-relative overflow-hidden">
+              <img src="static/img/승기야몇시고.jpg" class="img-fluid" alt="">
+              <span class="post-date">2023-01-04</span>
+            </div>
+
+            <div class="post-content d-flex flex-column">
+
+              <h3 class="post-title">"승기야몇시고.."로 유명한 고양이, 합성이아닌 실존하는걸로 밝혀졌다.</h3>
+
+              <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person"></i> <span class="ps-2">애니멀바</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-folder2"></i> <span class="ps-2">미디어</span>
+                </div>
+              </div>
+
+              <hr>
+
+              <a href="index" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="post-item position-relative h-100">
+
+            <div class="post-img position-relative overflow-hidden">
+              <img src="static/img/강아지눈물3.jpg" class="img-fluid" alt="">
+              <span class="post-date">23-01-05</span>
+            </div>
+
+            <div class="post-content d-flex flex-column">
+
+              <h3 class="post-title">강아지도 나쁜말을들으면 꿈을꾸고 시무룩해한다. 강아지는 기억할것입니다.</h3>
+
+              <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person"></i> <span class="ps-2">반려동물심리학자</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-folder2"></i> <span class="ps-2">동물심리</span>
+                </div>
+              </div>
+
+              <hr>
+
+              <a href="index" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6">
+          <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="post-img position-relative overflow-hidden">
+              <img src="static/img/강아지눈물2.jpg" class="img-fluid" alt="">
+              <span class="post-date">23-01-10</span>
+            </div>
+
+            <div class="post-content d-flex flex-column">
+
+              <h3 class="post-title">지나치게 눈가가 촉촉한 우리아이,괜찮은가? 사실 괜찮지않을수있다.</h3>
+
+              <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person"></i> <span class="ps-2">수의사협회</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-folder2"></i> <span class="ps-2">건강</span>
+                </div>
+              </div>
+              <hr>
+              <a href="index" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="posts" class="posts">
+      <div class="container" data-aos="fade-up">
+        <h2><strong>오늘의 요약</strong></h2>
+        <hr size="3.5">
+        <p class="fst-italic-3">
+        오늘의 뉴스를 가장빠르게 확인해보세요.
+       </p>
+        <div class="row g-5">
+          <div class="col-lg-4">
+            {% if results %}
+            {% for result in results%}
+            <br>
+            <div class="post-entry-1 lg">
+              <a href="{{result.url }}">
+                {% if result.img %}<img src="static/img/News/News_cat1.jpg" alt="{{result.title}}" class="img-fluid"> {% endif %}
+              <h4>{{result.title}}</h4></a>
+              <p class="mb-4 d-block">{{result.summary}}</p>
+                  <div class="d-flex align-items-center author">
+                    {% if result.publisher %}<i class="bi bi-person"></i> <span class="ps-2">{{result.publisher}}</span>{% endif %}
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="post-meta"> {% if result.category %}<span class="date">result.category</span> {% endif %}<span class="mx-1">&bullet;</span> <span>{{result.writedate}}</span></div>
+                  </div>
+            </div>
+            <br><hr size="3.8">
+            {% endfor%}
+            {% endif %}
+          </div>
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_cat3.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">일상</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h4><a href="#">고양이가 뭔가 사고를 치려고한다.</a></h4>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_cat4.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">사회</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
+                  <h4><a href="#">길위의 생명도 생명입니다.</a></h4>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_dog1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">문화</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
+                  <h4><a href="#">양평시 강아지 놀이터 개방</a></h4>
+                </div>
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_ram1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">자연</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h4><a href="#">다람쥐가 마법을 쓰려고하고있다.</a></h4>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_cat5.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">일상</span> <span class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
+                  <h4><a href="#">고양이는 하루에 얼마나 잘까?</a></h4>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="static/img/News/News_dog2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">여행</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h4><a href="#">"개와함께 남이섬으로오세요"</a></h4>
+                </div>
+              </div>
+              <div class="col-lg-4">
+
+                <div class="trending">
+                  <h3>Trending</h3>
+                  <ul class="trending-post">
+                    
+                      <a href="#">
+                        <hr size="3.8">
+                        <h5>동물 보험 가입자, 전년도보다 10%나 늘어..</h5>
+                      </a>
+                      <p calss="text-black-50">중앙일보</p>
+                    
+                      <a href="#">
+                        <hr size="3.8">
+                        <h5>영화 "내 어깨위의 고양이 밥"의 실사 주인공 "밥"사망..</h5>
+                        
+                      </a>
+                      <p calss="text-black-50">SBS</p>
+                    
+                      <a href="#">
+                        <hr size="3.8">
+                        <h5>동물의료비, 이대로 괜찮은가? "부르는대로 값이정해져.."</h5>
+                        
+                      </a>
+                      <p calss="text-black-50">KBS</p>
+                    
+                      <a href="#">
+                        <hr size="3.8">
+                        <h5>눈건강에 좋은 루테인, 정말 동물들에게도 효과가있을까?</h5>
+                        
+                      </a>
+                      <p calss="text-black-50">MBC</p>
+                    
+                      <a href="#">
+                        <hr size="3.8">
+                        <h5>사람들이 잘 모르는 고양이한테 주면 안되는 음식 Top5..</h5>
+                      </a>
+                      <p calss="text-black-50">EBS</p>
+                  </ul>
+                </div>
+
+              </div> 
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section> 
+  </main>
+
+<footer>{% include 'footer.html' %}</footer>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
+<script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+<script src="static/js/main.js"></script>
+<script src="static/js/header.js"></script>
+</body>
+</html>

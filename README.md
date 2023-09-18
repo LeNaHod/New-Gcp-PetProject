@@ -20,8 +20,29 @@ SITE: https://my-petservice.site
 
 시연영상:https://www.youtube.com/watch?v=pI_dkQX9XOw
 
+## Upload file
+
+- Petservice : 서비스 인스턴스에서 현재 배포중인 Django프로젝트 파일
+- Airflow_News : 데이터 수집 Airflow 코드
+- Airflow_spark-submit.py : Spark 전처리 및 DB적재 파일
+
+## Record
+
+**개발일지 및 학습내용 기록 링크**
+
+[Manuals](https://github.com/LeNaHod/Manuals) (전체적인 개발일지)
+
+[server](https://github.com/LeNaHod/Manuals/blob/master/server.md)
+
+[Hadoop](https://github.com/LeNaHod/Manuals/blob/master/hadoop.md)
+
+[Django](https://github.com/LeNaHod/Manuals/blob/master/Django.md)
+
+[Airflow](https://github.com/LeNaHod/Manuals/blob/master/Airflow.md)
+
 ## 아키텍처
 
+![서비스아키텍쳐](./서비스흐름도.PNG)
 
 
 ## 기술스택
@@ -34,6 +55,7 @@ SITE: https://my-petservice.site
 - Python
 - Django
 - html,css,JavaScript
+
 
 ### ML/DL
 
@@ -66,3 +88,4 @@ SITE: https://my-petservice.site
 - Hadoop
 - Mysql
 - Zookeeper(트위터API오류로 구축만되어있음)
+- Redis

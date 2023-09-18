@@ -1,0 +1,51 @@
+<footer id="footer" class="footer" style="background-image: url(static/img/footerimage.jpg)">
+
+  <div class="footer-content position-relative">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-info">
+            <h3>슬집생</h3>
+            <p>
+              펫 <br>
+              프로젝트<br><br>
+              <strong>Phone:</strong> +1 1234 5678<br>
+              <strong>Email:</strong> test@mail.com<br>
+            </p>
+            <div class="social-links d-flex mt-3">
+              <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div> 
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>바로가기 링크</h4>
+          <ul>
+            <li><a href="index" id="index">Home</a></li>
+            <li><a href="Medical" id="Medical">Medical</a></li>
+            <li><a href="services" id="services">안구질환 검사</a></li>
+            {% if request.session.id %}
+            <li><a href="mypage" id="mypage">마이페이지</a></li>
+            <li><a href="logout" id="logout">로그아웃</a></li>
+            {% else %}
+            <li><a href="member" id="member">회원가입</a></li>
+            <li><a href="login" id="login">로그인</a></li>
+            {% endif %}
+          </ul>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legal text-center position-relative">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>슬집생</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </div>
+
+</footer>

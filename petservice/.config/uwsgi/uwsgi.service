@@ -1,0 +1,14 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart={uwsgi경로}/bin/uwsgi -i {프로젝트경로}/.config/uwsgi/petservice.ini
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

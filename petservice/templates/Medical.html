@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>슬기로운집사생활</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="static/img/animal_icon.png" rel="icon">
+  <link href="static/img/animal_icon.png" rel="animal_icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/css/main.css" rel="stylesheet">
+  
+  {% load static %}
+
+  <!--Kakao Map_style-->
+  <style>
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+  </style>
+
+</head>
+
+<body>
+<header>{% include 'header.html' %}</header>
+  <main id="main">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/Medicalheader.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+        <h2>Medical</h2>
+        <ol>
+          <li><a href="index">Home</a></li>
+          <li>Medical</li>
+        </ol>
+      </div>
+    </div>
+    <section id="alt-services-2" class="alt-services section-bg">
+      <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>병원 상세위치</h2>
+          </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                              <th>동물병원 이름</th>
+                              <th>주소</th>
+                              <th>전화번호</th>
+                            </tr>
+                        </thead>
+                        {% for hospital in hospital_list %}
+                        <tbody>
+                          <tr>
+                            <td>{{hospital.name}}</td>
+                            <td>{{hospital.address}}</td>
+                            <td>{{hospital.tel}}</td>
+                          </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+              <!--페이징처리 시작부분-->   
+                <ul class="pagination justify-content-center">
+                    <!-- 처음페이지 -->
+                    {% if hospital_list.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">처음</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">처음</a>
+                    </li>
+                    {% endif %}
+                    <!-- 페이지리스트 -->
+                    {% for page_number in hospital_list.paginator.page_range %}
+                    {% if page_number >= hospital_list.number|add:-5 and page_number <= hospital_list.number|add:5 %}
+                    {% if page_number == hospital_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    <!-- 마지막페이지 -->
+                    {% if hospital_list.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ hospital_list.paginator.num_pages }}">마지막</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">마지막</a>
+                    </li>
+                    {% endif %}
+                </ul>
+              <!-- 페이징처리 끝 -->
+        </div>
+
+    </section><!--병원리스트Section종료  -->
+
+    <!--카카오 MAP세션 시작-->
+    <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>병원위치</h2>
+          <h4>카카오 맵을 통해 마커로 표시됩니다. 이용시, 위치를 항상 켜두세요</h4>
+          <button type="button" class="btn bi-check2-all btn-warning" id="address_choice">주소선택하기</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary btn bi-check2-all" id="address_current" onclick="getCurrentPosBtn()">현재위치선택</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success btn bi bi-check2-all" id="movebtn" onclick="getmovebtn()">위치 이동하기</button>
+          <div class="form-group">
+          <label for="exampleInputEmail1" class="form-label mt-4">선택된 주소</label>
+          <input type="text" class="form-control" id="maelcal_address" value="" aria-describedby="addressHelp" placeholder="주소를선택해주세요">
+        </div>
+        <!--카카오 MAP이 그려지는부분의 시작-->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+            <div class="row position-relative">
+              <div id="map" style="width:1000x;height:700px;" class ="row position-relative"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=your_key"></script>
+                <script>
+                 function locationLoadSuccess(pos){
+                  // 현재 위치 받아오기
+                  var lat=pos.coords.latitude //내위치 lat
+                  var lot=pos.coords.longitude //내위치 lot
+                  var currentPos = new kakao.maps.LatLng(lat,lot);
+                  
+                  //가까우면 스무스하게넘어감
+                  map.panTo(currentPos);
+                  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"//병원마커와 다른마커
+                  var imageSize = new kakao.maps.Size(24, 35);
+                  var markerImage2 = new kakao.maps.MarkerImage(imageSrc,imageSize); //현재위치마커이미지정보
+                  var locPosition = new kakao.maps.LatLng(lat, lot); //현재나의위치 마커생성
+                  var marker = new kakao.maps.Marker({
+                    map: map, 
+                    position: locPosition,
+                    title:"현재위치" ,
+                    image : markerImage2 //현재위치마커이미지정보 지정
+                  });
+                  
+              };
+              
+              function locationLoadError(pos){
+                  alert('위치를 찾지못하여 기본위치로 돌아갑니다.');
+                  var locPosition = new kakao.maps.LatLng(35.208442,126.8710661)
+                  displayMarker(locPosition); }; //위치를 찾지못했을때 발생하는용도
+
+                // 위치 가져오기 버튼 클릭시
+              function getCurrentPosBtn(){
+                navigator.geolocation.getCurrentPosition(locationLoadSuccess,locationLoadError)};
+                    
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                  mapOption = {
+                      center: new kakao.maps.LatLng(35.208442,126.8710661), // 지도의 중심좌표
+                      level: 3 // 지도의 확대 레벨.y/x 카카오좌표계:WGS84 경/위도EPSG:4326 ,csv기존좌표계:중부원점(GRS80)	EPSG:5181
+                      };
+
+                  //마커를 생성하기위해 좌표데이터를 가져오는부분
+                
+                  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+                  
+                  //json파싱작업
+                  var lotlats = JSON.parse("{{ lotlatlist|escapejs }}");
+                      console.log(lotlats) //데이터 확인용
+                  
+                  // 마커를 표시할위치와 이름을 배열에담는다
+                  var positions = [];
+                      for (var i = 0; i < Object.keys(lotlats).length; i++) {
+                        var content = {
+                          title: lotlats[i].name,
+                          latlng: new kakao.maps.LatLng(lotlats[i].lat, lotlats[i].lot),
+                          address: lotlats[i].address,
+                          tel: lotlats[i].tel,
+                        }
+                        positions.push(content);
+                    };
+                    console.log(positions);
+
+                   //마커 이미지.
+                  var imageSrc = "static/img/marker.png";
+                  for (var i = 0; i < positions.length; i++) {
+                    // 마커 이미지의 이미지 크기
+                    var imageSize = new kakao.maps.Size(30, 40);
+                    // 마커 이미지를 생성합니다
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                      map: map, // 마커를 표시할 지도
+                      position: positions[i].latlng, // 마커를 표시할 위치
+                      title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                      image: markerImage, // 마커 이미지
+                  });
+                  
+                //마커 클릭시 작은 팝업창으로 오버레이를띄우는 작업부분
+                  (function(marker, place) {
+                    // 마크 클릭 시
+                    kakao.maps.event.addListener(marker, 'click', function() {
+                      var overlay = new kakao.maps.CustomOverlay({
+                        // 오버레이에 띄울 내용
+                        content: '<div class="wrap">' +
+                              '    <div class="info">' +
+                              '        <div class="title">' +
+                              place.title +
+                              '        </div>' +
+                              '        <div class="body">' +
+                              '            <div class="desc">' + 
+                              '                <div class="ellipsis">' + place.address + '</div>' +
+                              '		       <div class="jibun ellipsis">' + place.tel + '</div>' +
+                              '            </div>' +
+                              '        </div>' +
+                              '    </div>' +
+                              '</div>',
+                        map: map,
+                        position: marker.getPosition()
+                      });
+                      // 아무데나 클릭하게되면 overlay를 끄기
+                      kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+                        overlay.setMap(null)
+                      })
+                      console.log(overlay); //확인
+                      overlay.setMap(map); //오버레이띄우기
+                    })
+                  })(marker, positions[i])
+                };
+                document.getElementById("address_choice").addEventListener("click", function(){ //버튼의 아이디가 addresschoice.즉 발생시키고싶은아이디를 넣음
+                        new daum.Postcode({
+                            oncomplete: function(data) { //입력값을받아올것임
+                                var roadAddr = data.roadAddress;
+                                document.getElementById("maelcal_address").value = data.address; // 선택한 주소를 주소선택창에넣음
+                            }  
+                        }).open();
+                      }); //종료
+               
+              //위치 이동하기버튼을 눌렀을때, medical_address안의주소의 위치로 지도를 이동시킴
+              function getmovebtn(){
+                // 주소-좌표 변환 객체를 생성합니다
+                var geocoder = new kakao.maps.services.Geocoder();
+
+                // 주소로 좌표를 검색합니다
+                geocoder.addressSearch(document.getElementById("maelcal_address").value, function(result, status) {
+
+                    // 정상적으로 검색이 완료됐으면 
+                    if (status === kakao.maps.services.Status.OK) {
+
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x)
+
+                        // // 결과값으로 받은 위치를 마커로 표시합니다
+                        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"//병원마커와 다른마커
+                        var imageSize = new kakao.maps.Size(24, 35);
+                        var markerImage3 = new kakao.maps.MarkerImage(imageSrc,imageSize); 
+                        var marker = new kakao.maps.Marker({
+                              map: map,
+                              position: coords,
+                              image: markerImage3
+                          });
+                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                        map.setCenter(coords);
+                    }
+              })};
+                </script>
+                <!--도로명 주소 검색 팝업창을 띄워주는 스크립트-->
+                <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+
+  </main>
+  <footer id="footer" class="footer" style="background-image: url(static/img/footerimage.jpg)">
+    
+    <div class="footer-content position-relative">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>슬집생</h3>
+              <p>
+                펫 <br>
+                프로젝트<br><br>
+                <strong>Phone:</strong> +1 1234 5678<br>
+                <strong>Email:</strong> test@mail.com<br>
+              </p>
+              <div class="social-links d-flex mt-3">
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div> 
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>바로가기 링크</h4>
+            <ul>
+              <li><a href="index">Home</a></li>
+              <li><a href="medical">Medical</a></li>
+              <li><a href="service">안구질환검사</a></li>
+              <li><a href="member">회원가입</a></li>
+            </ul> 
+          </div>
+    <div class="footer-legal text-center position-relative">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>슬집생</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/js/main.js"></script>
+</body>
+</html>

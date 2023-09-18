@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>슬기로운 집사생활-마이페이지</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="static/img/animal_icon.png" rel="icon">
+    <link href="static/img/animal_icon.png" rel="animal_icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="static/css/main.css" rel="stylesheet">
+
+    {% load static %}
+</head>
+
+<body>
+
+<header>{% include 'header.html' %}</header>
+
+<main id="main">
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/member_header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>마이페이지</h2>
+            <ol>
+                <li><a href="index">Home</a></li>
+                <li>마이페이지</li>
+            </ol>
+
+        </div>
+    </div>
+
+    <section id="alt-services-2" class="alt-services section-bg">
+        <div class="container" data-aos="fade-up">
+            {% if results %}
+            <div style="margin:10px;">
+                {% for result in results %}
+                <div class="row justify-content-around gy-7" style="padding-bottom:5%;">
+
+                    <div class="left_div" style="float: left; width: 40%;">
+                        <div class="img-bg img-thumbnail" id="imgDiv" style="background-image: url('{{result.path}}'); center no-repeat; width:400px;" data-aos="zoom-in" data-aos-delay="100"></div>
+                    </div>
+
+                    <div  style="float:left; width: 50%; padding-top:2%">
+                        <h4 content="" style="text-align: center;font-size: 28px;font-weight: 700;color: var(--color-secondary);margin-bottom: 10%;">{{result.upload_date}}</h4>
+                        {%for data in result.proba_list %}
+                        <div class="col-lg-10 d-flex flex-column justify-content-center">
+                            <div class="card-body">
+                                <h4 class="small font-weight-bold">{{data.label }} <span
+                                        class="float-right">{{data.proba}}%</span></h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: {{data.proba}}%"
+                                         aria-valuenow="{{data.proba}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div style="border: 1px solid #33200440;width: 90%;height: 1px;margin-bottom: 5%;"></div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h3>{{output_msg}}</h3>
+            {% endif %}
+        </div>
+    </section>
+</main>
+<footer>{% include 'footer.html' %}</footer>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
+<script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+<script src="static/js/main.js"></script>
+<script src="static/js/header.js"></script>
+
+</body>
+</html>
