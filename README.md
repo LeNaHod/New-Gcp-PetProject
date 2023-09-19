@@ -14,7 +14,7 @@
 
 <현재 배포중인 서비스 주소>
 
-NOTICE: 평균 평일 15시~18시에 사이트가 오픈되어있습니다.
+NOTICE: 평균 평일 15시~18시에 사이트가 오픈되어있습니다. 시스템 구축 Config파일은 포함되어있지않습니다. 
 
 SITE: https://my-petservice.site
 
@@ -25,6 +25,8 @@ SITE: https://my-petservice.site
 - Petservice : 서비스 인스턴스에서 현재 배포중인 Django프로젝트 파일. **AI모델파일은 용량문제로 제외했습니다.**
 - Airflow_News : 데이터 수집 Airflow 코드
 - Airflow_spark-submit.py : Spark 전처리 및 DB적재 파일
+- Medical : 공공데이터 포털에서 제공하는 동물병원 리스트 가공하는데 사용한 코드
+- Nori_Template : 수집한 뉴스기사를 Nori분석기를 적용시키는 Template
 
 ## Record
 
@@ -39,6 +41,7 @@ SITE: https://my-petservice.site
 [Django](https://github.com/LeNaHod/Manuals/blob/master/Django.md)
 
 [Airflow](https://github.com/LeNaHod/Manuals/blob/master/Airflow.md)
+
 
 ## 아키텍처
 
